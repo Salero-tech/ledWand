@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "interrupt.h": "c",
+        "ws2812.h": "c",
+        "delay.h": "c",
+        "stdint.h": "c",
+        "scale.h": "c"
+    }
+}
