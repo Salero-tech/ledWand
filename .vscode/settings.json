@@ -4,6 +4,7 @@
         "ws2812.h": "c",
         "delay.h": "c",
         "stdint.h": "c",
-        "scale.h": "c"
+        "scale.h": "c",
+        "arduino.h": "c"
     }
 }

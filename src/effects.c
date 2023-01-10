@@ -12,7 +12,7 @@ void clearStrip (rgb_color * strip)
 void fillTo (rgb_color * strip, uint8_t count)
 {
     for (uint8_t i = 0; i < count; i++){
-        strip[i].red = 255;
+        strip[i].red = 50;
         strip[i].green = 0;
         strip[i].blue = 0;
     }

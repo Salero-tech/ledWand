@@ -4,6 +4,8 @@
 #include "effects.h"
 #include "scale.h"
 #include <util/delay.h>
+#include "uart.h"
+
 
 #define SOFTWARE_CLOCK 20
 
@@ -17,22 +19,25 @@ int main ()
 
 
 
-
+    USART_Init(UBRR);
     ADC_init();
     led_strip_write(strip);
     while (1)
     {
-        mic = ADC_read(0);
+        mic = 255 - ADC_read(0);
+        
 
-        if (refreshConter >= 200)
+        if (refreshConter >= 50)
         {
-            res = bufferedData(mic);
+            res = scaleData(mic, LED_COUNT);
             refreshConter = 0;
-
         }
 
+        clearStrip(strip);
         fillTo(strip, res);
         led_strip_write(strip);
+
+        
 
         _delay_ms(SOFTWARE_CLOCK);
         refreshConter += SOFTWARE_CLOCK;
