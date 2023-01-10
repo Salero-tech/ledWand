@@ -9,7 +9,9 @@
 #include <util/delay.h>
 
 /*Numer of LEDs on Stripe*/
-#define LED_COUNT (16)
+#define LED_COUNT_PER_ROW (16)
+#define ROWS 4
+#define LED_COUNT (ROWS * LED_COUNT_PER_ROW)
 
 
 

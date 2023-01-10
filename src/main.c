@@ -11,8 +11,10 @@
 
 int main ()
 {
-    rgb_color strip[LED_COUNT];
+    rgb_color strip[LED_COUNT_PER_ROW];
+    rgb_color targetStrip[LED_COUNT];
     clearStrip(strip);
+    clearStrip(targetStrip);
     uint8_t mic = 0;
     uint8_t res = 0;
     uint16_t refreshConter = 0;
@@ -21,7 +23,7 @@ int main ()
 
     USART_Init(UBRR);
     ADC_init();
-    led_strip_write(strip);
+    led_strip_write(targetStrip);
     while (1)
     {
         mic = 255 - ADC_read(0);
@@ -34,8 +36,9 @@ int main ()
         }
 
         clearStrip(strip);
-        fillTo(strip, res);
-        led_strip_write(strip);
+        fillRainbowTo(strip, res);
+        toRowReverse(targetStrip, strip);
+        led_strip_write(targetStrip);
 
         
 

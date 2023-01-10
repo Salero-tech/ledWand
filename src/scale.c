@@ -1,4 +1,5 @@
 #include "scale.h"
+#include "ws2812.h"
 
 long map(long x, long in_min, long in_max, long out_min, long out_max)
 {
@@ -44,7 +45,7 @@ uint8_t scaleData (uint8_t value, uint8_t max)
 {
     uint8_t result = 0;
 
-    result = map(value, 0, 255, 0, 16);
+    result = map(value, 0, 255, 0, LED_COUNT_PER_ROW);
 
 
     return result;
